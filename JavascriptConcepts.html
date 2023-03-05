@@ -1,0 +1,246 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            /* div{
+                max-width: 100px;
+                max-height: 100px;
+                min-width: 100px;
+                min-height: 100px;
+                padding: 24px;
+                border: 1px solid black;
+                cursor: pointer;
+                border-radius: 50%;
+            } */
+
+            .grid-container {
+                display:grid;
+                background-color: blue;
+                grid-template-columns: auto auto auto auto auto auto;
+                grid-gap: 10px;
+                padding: 10px;
+            }
+            .grid-item {
+                background-color: burlywood;
+                border: 1px solid black;
+                padding: 20px;
+                font-size: 30px;
+                text-align: center;
+            }
+
+            .item8 {
+                grid-area: 1/2/5/6
+            }
+
+            .grid-container-2 {
+                display:grid;
+                background-color: blue;
+                grid-template-areas: 'header header header header header header header'
+                'side side main main main left left'
+                'side side footer footer footer footer footer';
+                grid-gap: 10px;
+                padding: 10px;
+            }
+            .grid-container-2 > div {
+                background-color: burlywood;
+                border: 1px solid black;
+                padding: 20px;
+                font-size: 30px;
+                text-align: center;
+            }
+            .grid-item-1{
+                grid-area: header;
+            }
+            .grid-item-2{
+                grid-area: side;
+            }
+            .grid-item-3{
+                grid-area: main;
+            }
+            .grid-item-4{
+                grid-area: left;
+            }
+            .grid-item-5{
+                grid-area: footer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Holla Holla Mohit</h1>
+        <span>Debounce...</span>
+        <input id='textTyped' type="text" onkeypress="debounce()"/>
+        <br>
+        <br>
+        <span>Throttle...</span>
+        <input id='textTypedTh' type="text" onkeypress="throttle()"/>
+        <!-- <br>
+        <br> -->
+        <!-- <div id="grandParent">grand-parent
+            <div id="parent">parent
+                <div id="child">child</div>
+            </div>
+        </div> -->
+        <!-- <br>
+        <br>
+        <br>
+        <br> -->
+        <div>
+            <ul id="categories">
+                <li id="mobiles" style="cursor: pointer;">mobiles</li>
+                <li id="watches" style="cursor: pointer;">watches</li>
+                <li id="laptops" style="cursor: pointer;">laptops</li>
+            </ul>
+        </div>
+
+        <div class='grid-container'>
+            <div class='grid-item'>1</div>
+            <div class='grid-item'>2</div>
+            <div class='grid-item'>3</div>
+            <div class='grid-item'>4</div>
+            <div class='grid-item'>5</div>
+            <div class='grid-item'>6</div>
+            <div class='grid-item'>7</div>
+            <div class='grid-item item8'>8</div>
+            <div class='grid-item'>9</div>
+            <div class='grid-item'>10</div>
+            <div class='grid-item'>11</div>
+            <div class='grid-item'>12</div>
+            <div class='grid-item'>13</div>
+            <div class='grid-item'>14</div>
+            <div class='grid-item'>15</div>
+            
+        </div>
+        <br></br>
+        <br></br>
+        <div class='grid-container-2'>
+            <div class='grid-item-1'>Header</div>
+            <div class='grid-item-2'>Side</div>
+            <div class='grid-item-3'>Main</div>
+            <div class='grid-item-4'>Left</div>
+            <div class='grid-item-5'>Footer</div>
+        </div>
+
+        <!-- <div>
+            <video controls width="550">
+                <source 
+                src="https://mdn.github.io/learning-area/html/multimedia-and-embedding/video-and-audio-content/rabbit320.webm"
+                type="video/webm">
+            </video>
+        </div>  -->
+
+        <!-- <ul id="ulContainer"></ul> -->
+
+        <!-- <main>
+            <p title="mouseover text"><![CDATA[ this is some characterData ]]>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, quam eos provident sapiente culpa corrupti, deleniti inventore, omnis recusandae repudiandae quasi soluta repellat, expedita suscipit id tenetur excepturi corporis quis.</p>
+            <p>Praesentium ut voluptatem corrupti itaque eveniet necessitatibus tempore cupiditate provident quod voluptas porro qui in, recusandae saepe odit, reiciendis laudantium nulla, nam perferendis nihil dolorum atque est quae. Temporibus, dolorum!</p>
+            <p>Quidem est neque eaque et corrupti magni, doloribus eum. Tempora impedit, veritatis labore accusantium ratione vel. Nesciunt enim quod, beatae quaerat, consectetur sequi veritatis quas dolores ex harum eligendi explicabo!</p>
+        </main> -->
+
+        <!-- <script src="./ArrayStringProg.js"></script> -->
+        <!-- <script src="./PractiseJavascript.js"></script> -->
+        <!-- <script src="./PractiseDSA.js"></script> -->
+        <!-- <script src="./LL-Tree-Graph.js"></script> -->
+        <!-- <script src="./ArrayStringProg.js"></script> -->
+        <!-- <script src="./StackQueue.js"></script> -->
+        <!-- <script src="./SortingSearch.js"></script> -->
+        <!-- <script src="./JavascriptConcepts.js"></script> -->
+        <!-- <script src="./DesignPattern.js"></script> -->
+        <!-- <script>
+            /*** Adding and Removing <li> on the fly with help of JS using Class ***/
+            /*const parentNodeUl = document.getElementById("ulContainer");
+            class AddingListOnFly {
+                constructor(element){
+                    this.pNode = element;
+                    this.listArr = [];
+                }
+
+                add(item){
+                    const liEle = document.createElement("li");
+                    liEle.textContent = item;
+                    this.listArr.push(item)
+                    this.pNode.appendChild(liEle);
+                }
+
+                remove(index){
+                    if(this.listArr.length === 0){
+                        console.log("no element is there !!!");
+                        return
+                    }
+                   this.listArr.splice(index, 1); 
+                   while(this.pNode.firstChild){
+                       this.pNode.removeChild(this.pNode.firstChild)
+                   }
+                   this.listArr.forEach(item => {
+                        const liEle = document.createElement("li");
+                        liEle.textContent = item;
+                        this.pNode.appendChild(liEle);
+                   });
+                }
+
+            } 
+            const list = new AddingListOnFly(parentNodeUl);
+            list.add("Am")
+            list.add("Aam")
+            list.add("kaam")
+            list.add("Haraam")
+            list.add("Sham")
+            list.add("Daam")
+            list.add("Dand")
+            list.add("Bhed")
+            list.add("Qwerty")
+
+            list.remove(2); */
+
+        
+            /** Mutation observer example **/
+            // let observer;
+            
+            // document.addEventListener('DOMContentLoaded', init);
+            
+            // function init(){
+            //     let p = document.querySelector('main > p'); //1st p
+            //     p.addEventListener('click', change);
+                
+            //     let config = {
+            //         attributes: true, 
+            //         attributeOldValue: true,
+            //         attributeFilter: ['data-thing', 'title', 'style'],
+            //         childList: false, 
+            //         subtree: false, 
+            //         characterData: false,
+            //         characterDataOldValue: false
+            //     };
+            //     /* childList, attributes, characterData */
+                
+            //     observer = new MutationObserver(mutated);
+            //     observer.observe(p, config);
+            // }
+            
+            // function change(ev){
+            //     let p = ev.currentTarget;
+                
+            //     p.textContent = ' this is new content';
+            //     p.setAttribute('data-thing', 123);
+            //     p.title = 'NEW TITLE'
+                
+            //     let span = document.createElement('span');
+            //     span.textContent = ' SOME SPAN TEXT';
+            //     p.appendChild(span);
+            // }
+            
+            // function mutated(mutationList){
+            //     console.log( mutationList );
+            //     for(let mutation of mutationList) {
+            //         if (mutation.type == 'childList') {
+            //             console.log('A child node has been added or removed.');
+            //         }
+            //         else if (mutation.type == 'attributes') {
+            //             console.log('The ' + mutation.attributeName + ' attribute was modified.');
+            //             console.log( mutation.oldValue );
+            //         }
+            //     }
+            //     observer.disconnect();
+            // }
+        </script> -->
+    </body>
+</html>
